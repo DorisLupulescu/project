@@ -1,16 +1,24 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-import { AppComponent } from './app.component';
+import { HttpClientModule } from "@angular/common/http";
+import { ReactiveFormsModule } from "@angular/forms";
+
+import { AppComponent } from "./app.component";
+import { EditComponent } from "./edit/edit.component";
+import { AppRoutingModule } from "./app-routing.module";
+import { CommunicationService } from "./communication.service";
+import { RefreshCatsService } from "./refresh-cats.service";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent, EditComponent],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CommunicationService, RefreshCatsService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
